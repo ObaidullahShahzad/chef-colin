@@ -4,14 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chef Colin</title>
+
+    <!-- Fonts and styles -->
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- iTyped and jQuery -->
     <script src="https://unpkg.com/ityped@0.0.10"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <section class="hero-section">
@@ -163,6 +176,7 @@
     </section>
     <section class="explore-section">
       <h1 class="explore-heading">Verify. Connect. Explore.</h1>
+      <!-- card one -->
       <div class="explore-wrapper">
         <div class="explore-card image-card">
           <img src="./images/explore.svg" alt="Seaweed/Meat Closeup" />
@@ -175,11 +189,122 @@
           </p>
           <button class="learn-more-btn">
             Learn More
-            <span class="arrow">↗</span>
+            <img src="./images/arrow-btn.svg" class="arrow" />
+          </button>
+        </div>
+      </div>
+
+      <!-- card two -->
+      <div class="explore-wrapper">
+        <div class="explore-card image-card">
+          <img src="./images/explore_2.svg" alt="Seaweed/Meat Closeup" />
+        </div>
+        <div class="explore-card black text-card">
+          <h3>Marble, Muscle, <br />Mastery</h3>
+          <p>
+            We share a unique and proven background in Sensor Fusion, Autonomous
+            Guidance, Navigation, Control, and Robotic Perception of the
+            Environment
+          </p>
+          <button class="learn-more-btn">
+            Learn More
+            <img src="./images/arrow-btn.svg" class="arrow" />
+          </button>
+        </div>
+      </div>
+
+      <!-- card three -->
+      <div class="explore-wrapper">
+        <div class="explore-card image-card">
+          <img src="./images/explore_3.svg" alt="Seaweed/Meat Closeup" />
+        </div>
+        <div class="explore-card text-card">
+          <h3>
+            Not just my plates<br />
+            are exotic and wild!
+          </h3>
+          <p>
+            We dominate the entire autonomous driving stack, from the most
+            complex theoretical aspects to final integration on vehicles, that
+            actually work
+          </p>
+          <button class="learn-more-btn">
+            Learn More
+            <img src="./images/arrow-btn.svg" class="arrow" />
           </button>
         </div>
       </div>
     </section>
+    <section>
+      <div class="mtc-container">
+        <div class="mtc-content-wrapper">
+          <div class="mtc-text-content">
+            <h1>More To Come</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse varius enim in eros elementum tristique. Duis cursus,
+              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
+              libero vitae erat.
+            </p>
+            <a href="#" class="mtc-btn"
+              >View Blog
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <div class="mtc-slider-section">
+            <div class="mtc-slider">
+              <div class="mtc-slide">
+                <div class="mtc-slide-content">
+                  <div class="mtc-slide-image">
+                    <img
+                      src="./images/slider1.svg"
+                      alt="Small plant sprouting from ground with paw print"
+                    />
+                  </div>
+                  <h3 class="mtc-slide-title">
+                    The Wetlands & Porterhouse Park
+                  </h3>
+                </div>
+              </div>
+              <div class="mtc-slide">
+                <div class="mtc-slide-content">
+                  <div class="mtc-slide-image">
+                    <img
+                      src="./images/slider2.svg"
+                      alt="Tree medallion from New York"
+                    />
+                  </div>
+                  <h3 class="mtc-slide-title">
+                    The Wetlands & Porterhouse Park
+                  </h3>
+                </div>
+              </div>
+              <div class="mtc-slide">
+                <div class="mtc-slide-content">
+                  <div class="mtc-slide-image">
+                    <img
+                      src="./images/slider3.svg"
+                      alt="Wooden deck with water droplet"
+                    />
+                  </div>
+                  <h3 class="mtc-slide-title">The Custom Collection</h3>
+                </div>
+              </div>
+            </div>
+            <div class="mtc-slider-dots">
+              <span class="mtc-dot active" data-index="0"></span>
+              <span class="mtc-dot" data-index="1"></span>
+              <span class="mtc-dot" data-index="2"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="footer-section">
       <div class="footer-content">
         <div class="footer-brand">
@@ -215,9 +340,23 @@
         </div>
       </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="script.js"></script>
+    <!-- <script src="slider.js"></script> -->
+
     <script>
+      // JavaScript to detect scroll and apply zoom effect on the hero image
+      window.addEventListener("scroll", function () {
+        const heroImage = document.querySelector(".hero-image");
+
+        if (heroImage) {
+          const scrollY = window.scrollY;
+          const zoomAmount = Math.min(1 + scrollY / 500, 1.6); // Adjust the zoom intensity here
+          heroImage.style.transform = `scale(${zoomAmount})`;
+        }
+      });
+
       window.ityped.init(document.querySelector(".ityped"), {
         strings: ["Forged in kitchens. Grounded in craft. Verified on-chain."],
         loop: true,
@@ -275,6 +414,76 @@
           },
         }
       );
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.querySelector(".mtc-slider");
+        const dots = document.querySelectorAll(".mtc-dot");
+        let currentIndex = 0;
+        const totalSlides = document.querySelectorAll(".mtc-slide").length;
+
+        // Function to update slider position
+        function updateSlider() {
+          // Calculate slide width based on the number of slides per view
+          const slideWidth = document.querySelector(".mtc-slide").offsetWidth;
+
+          // Update the slider's transform to show the correct slide
+          slider.style.transform = `translateX(-${
+            currentIndex * slideWidth
+          }px)`;
+
+          // Update active dot
+          dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+              dot.classList.add("active");
+            } else {
+              dot.classList.remove("active");
+            }
+          });
+        }
+
+        // Set up automatic sliding
+        let slideInterval = setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          updateSlider();
+        }, 4000);
+
+        // Handle dot clicks
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            currentIndex = parseInt(dot.getAttribute("data-index"));
+            updateSlider();
+
+            // Reset the interval when manually clicking
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+              currentIndex = (currentIndex + 1) % totalSlides;
+              updateSlider();
+            }, 4000);
+          });
+        });
+
+        // Reset slider position on window resize
+        window.addEventListener("resize", () => {
+          updateSlider();
+        });
+
+        // Initial setup
+        updateSlider();
+
+        // Pause autoplay on hover
+        slider.addEventListener("mouseenter", () => {
+          clearInterval(slideInterval);
+        });
+
+        // Resume autoplay on mouse leave
+        slider.addEventListener("mouseleave", () => {
+          slideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlider();
+          }, 4000);
+        });
+      });
     </script>
   </body>
 </html>

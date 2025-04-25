@@ -1,4 +1,3 @@
-// Initialize GSAP with ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   burgerMenu.addEventListener("click", function () {
-    console.log("Burger menu clicked"); // Debug log
+    console.log("Burger menu clicked");
     navLinks.classList.toggle("active");
     const bars = document.querySelectorAll(".bar");
     bars.forEach((bar) => bar.classList.toggle("change"));
@@ -23,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   navItems.forEach((item) => {
     item.addEventListener("click", function () {
       if (navLinks.classList.contains("active")) {
-        console.log("Nav link clicked, closing menu"); // Debug log
+        console.log("Nav link clicked, closing menu");
         navLinks.classList.remove("active");
         const bars = document.querySelectorAll(".bar");
         bars.forEach((bar) => bar.classList.remove("change"));
@@ -51,25 +50,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const manifestoEl = document.getElementById("manifesto-text");
   if (manifestoEl) {
     const originalText = manifestoEl.innerText;
-    manifestoEl.innerHTML = ""; // Clear the element
+    manifestoEl.innerHTML = "";
 
-    // Create spans for each character
     Array.from(originalText).forEach((char) => {
       if (char === " ") {
         const spaceSpan = document.createElement("span");
         spaceSpan.className = "space";
-        spaceSpan.innerHTML = "&nbsp;";
+        spaceSpan.innerHTML = " ";
         manifestoEl.appendChild(spaceSpan);
       } else {
         const charSpan = document.createElement("span");
         charSpan.textContent = char;
         charSpan.className = "char";
-        charSpan.style.color = "#ccc"; // Initial color (light gray)
+        charSpan.style.color = "#ccc";
         manifestoEl.appendChild(charSpan);
       }
     });
 
-    // Animate characters
     gsap.to(".char", {
       scrollTrigger: {
         trigger: manifestoEl,
@@ -87,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === Box and Image Animations ===
   function initAnimations() {
-    // Clear existing ScrollTrigger instances for reveal elements
     ScrollTrigger.getAll().forEach((trigger) => {
       if (
         trigger.vars.trigger &&
@@ -98,18 +94,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Select all elements with the 'reveal-element' class
     const revealElements = document.querySelectorAll(".reveal-element");
-
-    // Apply GSAP animation to each reveal element
     revealElements.forEach((element, index) => {
-      gsap.set(element, { y: 50, opacity: 0 }); // Set initial state
+      gsap.set(element, { y: 50, opacity: 0 });
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: element,
           start: "top 85%",
           toggleActions: "play reverse play reverse",
-
           once: false,
         },
       });
@@ -123,10 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Animation for the main title
     const mainTitle = document.querySelector(".main-title");
     if (mainTitle) {
-      gsap.set(mainTitle, { y: 50, opacity: 0 }); // Set initial state
+      gsap.set(mainTitle, { y: 50, opacity: 0 });
       gsap.to(mainTitle, {
         scrollTrigger: {
           trigger: ".services-container",
@@ -140,10 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // Animation for beef image
     const beefImage = document.querySelector(".beef-image-container");
     if (beefImage) {
-      gsap.set(beefImage, { y: 50, opacity: 0 }); // Set initial state
+      gsap.set(beefImage, { y: 50, opacity: 0 });
       gsap.to(beefImage, {
         scrollTrigger: {
           trigger: beefImage,
@@ -161,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize animations
   initAnimations();
 
-  // Reinitialize animations on window resize to ensure responsiveness
+  // Reinitialize animations on window resize
   let resizeTimer;
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimer);
@@ -171,56 +161,75 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create responsive image observer
   const resizeObserver = new ResizeObserver((entries) => {
     entries.forEach((entry) => {
-      // If the image container is resized, refresh the ScrollTrigger
       if (entry.target.classList.contains("beef-image-container")) {
         ScrollTrigger.refresh();
       }
     });
   });
 
-  // Observe the beef image container if it exists
   const beefImageContainer = document.querySelector(".beef-image-container");
   if (beefImageContainer) {
     resizeObserver.observe(beefImageContainer);
   }
 
-  // Ensure images are responsive
   window.addEventListener("load", function () {
-    // Refresh ScrollTrigger after all images are loaded
     ScrollTrigger.refresh();
   });
+
+  // === Explore Section Stacking Reveal Animation with Pinning ===
+  const exploreSection = document.querySelector(".explore-section");
+  const exploreWrappers = document.querySelectorAll(".explore-wrapper");
+  if (exploreWrappers.length === 3 && exploreSection) {
+    // Set initial state: all wrappers stacked, with z-index controlling order
+    gsap.set(exploreWrappers, {
+      opacity: 1,
+      y: 0,
+    });
+    gsap.set(exploreWrappers[0], { zIndex: 3 }); // First wrapper on top
+    gsap.set(exploreWrappers[1], { zIndex: 2 }); // Second wrapper below
+    gsap.set(exploreWrappers[2], { zIndex: 1 }); // Third wrapper at bottom
+
+    // Create a timeline for the reveal effect
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: exploreSection,
+        start: "top top", // Pin when section hits top of viewport
+        end: "+=1000", // Shortened duration to prevent overlap
+        scrub: 1, // Smoothly tie animation to scroll
+        pin: true, // Pin the section
+        pinSpacing: true, // Add space to prevent content overlap
+        toggleActions: "play reverse play reverse",
+      },
+    });
+
+    // Animate first wrapper: move up and fade slightly
+    tl.to(exploreWrappers[0], {
+      y: -1000, // Move up to reveal second wrapper
+      opacity: 0.5,
+      duration: 1,
+      ease: "power2.out",
+    })
+      // Animate second wrapper: move up to reveal third wrapper
+      .to(
+        exploreWrappers[1],
+        {
+          y: -1000,
+          opacity: 0.5,
+          duration: 1,
+          ease: "power2.out",
+        },
+        "+=0.5" // Delay for sequential reveal
+      )
+      // Ensure third wrapper stays in place (add class to make it static)
+      .to(
+        exploreWrappers[2],
+        {
+          onStart: () => {
+            exploreWrappers[2].classList.add("static");
+          },
+          duration: 0,
+        },
+        "+=0.5"
+      );
+  }
 });
-
-// === Explore Section Animation ===
-const leftCard = document.querySelector(".image-card");
-const rightCard = document.querySelector(".text-card");
-
-if (leftCard && rightCard) {
-  gsap.set(leftCard, { x: -100, opacity: 0 });
-  gsap.set(rightCard, { x: 100, opacity: 0 });
-
-  gsap.to(leftCard, {
-    scrollTrigger: {
-      trigger: ".explore-wrapper",
-      start: "top 85%",
-      toggleActions: "play reverse play reverse",
-    },
-    x: 0,
-    opacity: 1,
-    duration: 1,
-    ease: "power3.out",
-  });
-
-  gsap.to(rightCard, {
-    scrollTrigger: {
-      trigger: ".explore-wrapper",
-      start: "top 85%",
-      toggleActions: "play reverse play reverse",
-    },
-    x: 0,
-    opacity: 1,
-    duration: 1,
-    ease: "power3.out",
-    delay: 0.1,
-  });
-}
