@@ -1215,7 +1215,7 @@ header {
     font-size: 28px;
   }
   .mtc-container {
-    margin-top: 500px; /* Adjust for mobile, where cards stack vertically */
+    margin-top: 600px; /* Adjust for mobile, where cards stack vertically */
   }
 
   .mtc-slide {
