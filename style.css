@@ -35,6 +35,8 @@ header {
   background-color: white;
   border-radius: 15px;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 9999;
 }
 .type {
   white-space: wrap;
@@ -676,7 +678,13 @@ header {
     min-height: 350px;
   }
 }
-
+@media (max-width: 425px) {
+  .new-unique-class {
+    flex-direction: column;
+    margin-top: 60px !important;
+    padding: 0 20px;
+  }
+}
 /* 425px media query - placed after 768px for override */
 @media (max-width: 425px) {
   .explore-wrapper {
