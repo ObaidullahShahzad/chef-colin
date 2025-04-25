@@ -644,6 +644,7 @@ header {
   margin-top: auto;
   height: 40px;
   width: 126px;
+  white-space: nowrap;
 }
 
 .learn-more-btn img {
@@ -1086,20 +1087,24 @@ header {
 .mtc-btn {
   display: inline-flex;
   align-items: center;
-  padding: 10px 20px;
+  white-space: nowrap;
+  justify-content: space-between;
+  padding: 5px 20px;
+  gap: 10px;
   border: 1px solid #333;
   border-radius: 30px;
   text-decoration: none;
   color: #333;
   font-weight: 500;
   transition: all 0.3s ease;
+  width: 150px;
 }
 
-.mtc-btn svg {
-  margin-left: 10px;
-  width: 20px;
-  height: 20px;
-  fill: #5a1e1e;
+.mtc-btn:hover img {
+  transform: rotate(45deg);
+}
+.mtc-btn img {
+  transition: transform 0.3s ease;
 }
 
 .mtc-btn:hover {
