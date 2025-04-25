@@ -678,10 +678,15 @@ header {
     min-height: 350px;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 500px) {
+  .explore-heading {
+    font-size: 38px;
+  }
+}
+@media (max-width: 450px) {
   .new-unique-class {
     flex-direction: column;
-    margin-top: 60px !important;
+    margin-top: 80px !important;
     padding: 0 20px;
   }
 }
