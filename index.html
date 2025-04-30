@@ -41,13 +41,22 @@
                 <li><a href="#explore" class="nav-link">Work</a></li>
                 <li><a href="#partners" class="nav-link">Tools</a></li>
                 <li><a href="#partners" class="nav-link">Land</a></li>
+                <li>
+                  <a
+                    href="https://www.dropbox.com/scl/fi/d1zqkhq89vb008yj2ed39/Chef-Colin-Bio.pdf?rlkey=nrocqaip52lo3ykd4unflaxrf&st=gtoxgemn&dl=1"
+                    class="nav-link"
+                    >Bio</a
+                  >
+                </li>
               </ul>
             </nav>
-            <a
-              href="https://www.dropbox.com/scl/fi/3ysm65res85tpy64dbsc1/Chef-Colin-resume.pdf?rlkey=3be9q4wcqstg5hvqm9t9ougsg&st=3rqhftux&dl=1"
-              class="signup-btn"
-              >Resume</a
-            >
+            <div>
+              <a
+                href="https://www.dropbox.com/scl/fi/3ysm65res85tpy64dbsc1/Chef-Colin-resume.pdf?rlkey=3be9q4wcqstg5hvqm9t9ougsg&st=3rqhftux&dl=1"
+                class="signup-btn"
+                >Resume
+              </a>
+            </div>
             <div class="burger-menu" id="burger-menu">
               <div class="bar"></div>
               <div class="bar"></div>
@@ -91,14 +100,19 @@
 
         <div class="continue-btn">
           <img class="arrow" src="./images/arrow.svg" />
-          <p class="continue-text">CONTINUE</p>
+          <a href="#about" style="text-decoration: none" class="continue-text"
+            >CONTINUE</a
+          >
         </div>
       </div>
     </section>
     <section class="card-section" id="about">
       <div class="card">
         <div class="card-image">
-          <img src="./images/meat.svg" alt="Marbled meat on cutting board" />
+          <img
+            src="./images/beef-meat.png"
+            alt="Marbled meat on cutting board"
+          />
         </div>
         <div class="card-text">
           <h2>Uncut</h2>
@@ -113,12 +127,12 @@
             they don’t write down — but it’s the part that built everything
             else.
           </p>
-          <button class="learn-more">
+          <a href="#legacy" style="text-decoration: none" class="learn-more">
             <div class="arrow-container">
               <img src="./images/arrow.svg" class="arrow-svg" />
             </div>
-            LEARN MORE
-          </button>
+            Continue
+          </a>
         </div>
       </div>
     </section>
@@ -202,34 +216,37 @@
             restaurant can be. No gimmicks. No shortcuts. Just relentless
             refinement.
           </p>
-          <button class="learn-more-btn">
+          <a style="text-decoration: none" href="#card2" class="learn-more-btn">
             Continue
             <img src="./images/arrow-btn.svg" class="arrow" />
-          </button>
+          </a>
         </div>
       </div>
 
       <!-- card two -->
-      <div class="explore-wrapper card-two">
+      <div class="explore-wrapper card-two" id="card2">
         <div class="explore-card image-card">
           <img src="./images/meatsss.png" alt="Seaweed/Meat Closeup" />
         </div>
         <div class="explore-card black text-card">
           <h3>Marble, Muscle, <br />Mastery</h3>
           <p>
-            We share a unique and proven background in Sensor Fusion, Autonomous
-            Guidance, Navigation, Control, and Robotic Perception of the
-            Environment
+            I’m certified to serve real Kobe—one of the few in the country who
+            can say that. I’ve got exclusive access to Cadbury Wagyu from Mayura
+            Station, and I bourbon-age it in-house until it’s damn near perfect.
+            On top of that, I’ve designed a few steak cuts of my own. You won’t
+            find them anywhere else. This isn’t hype—it’s control, rarity, and
+            doing things the right way.
           </p>
-          <button class="learn-more-btn">
+          <a style="text-decoration: none" href="#card3" class="learn-more-btn">
             Continue
             <img src="./images/arrow-btn.svg" class="arrow" />
-          </button>
+          </a>
         </div>
       </div>
 
       <!-- card three -->
-      <div class="explore-wrapper card-three">
+      <div class="explore-wrapper card-three" id="card3">
         <div class="explore-card image-card">
           <img src="./images/explore_3.svg" alt="Seaweed/Meat Closeup" />
         </div>
@@ -245,10 +262,10 @@
             doesn’t need taming. I don’t just work with rare cuts. I live with
             one.
           </p>
-          <button class="learn-more-btn">
+          <a href="#more" style="text-decoration: none" class="learn-more-btn">
             Continue
             <img src="./images/arrow-btn.svg" class="arrow" />
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -257,19 +274,19 @@
       <div class="logos">
         <a href="https://www.blackstonesteakhouse.com" class="logo-item">
           <img
-            src="images/blackstone.png"
+            src="images/blackstone-icon.png"
             alt="Blackstone Logo"
             class="logo-1"
           />
         </a>
         <a href="https://www.opussteakhouse.com" class="logo-item">
-          <img src="images/opus.png" alt="Opus Logo" class="logo-2" />
+          <img src="images/onepus-icon.png" alt="Opus Logo" class="logo-2" />
         </a>
         <a href="https://www.one10restaurant.com" class="logo-item">
-          <img src="images/one10.png" alt="One10 Logo" class="logo-3" />
+          <img src="images/one-10.png" alt="One10 Logo" class="logo-3" />
         </a>
         <a href="https://www.rare650.com" class="logo-item">
-          <img src="images/rare.png" alt="Rare Logo" class="logo-4" />
+          <img src="images/rare-icon.png" alt="Rare Logo" class="logo-4" />
         </a>
       </div>
       <a
@@ -282,7 +299,7 @@
       </a>
     </section>
 
-    <section>
+    <section id="more">
       <div class="mtc-container">
         <div class="mtc-content-wrapper">
           <div class="mtc-text-content">
@@ -292,7 +309,7 @@
               If I say there’s more coming, that means it’s worth waiting for.
             </p>
             <a href="coming-soon.html" class="mtc-btn">
-              View Blog
+              Dig Deeper
               <img src="./images/arrow_new.svg" class="arrow-new" alt="arrow" />
             </a>
           </div>
@@ -352,11 +369,21 @@
         </nav>
 
         <div class="footer-social">
-          <img src="./images/email.svg" />
-          <img src="./images/website.svg" />
-          <img src="./images/linkedin.svg" />
-          <img src="./images/web3.svg" />
-          <img src="./images/insta.svg" />
+          <a target="_blank" href="mailto:chefniloc@aol.com">
+            <img src="./images/email.svg"
+          /></a>
+          <a target="_blank" href="https://chefcolin.com/">
+            <img src="./images/website.svg"
+          /></a>
+          <a target="_blank" href="https://www.linkedin.com/in/chefniloc">
+            <img src="./images/linkedin.svg"
+          /></a>
+          <a target="_blank" href="https://app.ens.domains/name/niloc.eth"
+            ><img src="./images/web3.svg"
+          /></a>
+          <a target="_blank" href="https://www.instagram.com/chefniloc">
+            <img src="./images/insta.svg"
+          /></a>
         </div>
 
         <div class="footer-logo">
@@ -364,7 +391,7 @@
         </div>
 
         <div class="footer-button-container">
-          <a href="mailto:obaidullah7897@gmail.com" class="footer-button"
+          <a href="mailto:chefniloc@aol.com" class="footer-button"
             >CONTACT ME</a
           >
         </div>
@@ -526,19 +553,26 @@
 
         navLinks.forEach((link) => {
           link.addEventListener("click", (event) => {
-            event.preventDefault();
             const href = link.getAttribute("href");
-            console.log("Clicked nav link with href:", href);
 
-            const target = document.querySelector(href);
-            if (target) {
-              console.log("Target section found:", href);
-              window.scrollTo({
-                top: target.offsetTop - 60, // Adjust for header height
-                behavior: "smooth",
-              });
+            // Check if the href is an internal anchor link (starts with #)
+            if (href.startsWith("#")) {
+              event.preventDefault();
+              console.log("Clicked nav link with href:", href);
+
+              const target = document.querySelector(href);
+              if (target) {
+                console.log("Target section found:", href);
+                window.scrollTo({
+                  top: target.offsetTop - 60, // Adjust for header height
+                  behavior: "smooth",
+                });
+              } else {
+                console.warn("Target section not found for href:", href);
+              }
             } else {
-              console.warn("Target section not found for href:", href);
+              // For external URLs, allow default behavior (navigate to the URL)
+              console.log("External link clicked:", href);
             }
           });
         });
