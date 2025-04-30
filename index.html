@@ -43,7 +43,11 @@
                 <li><a href="#partners" class="nav-link">Land</a></li>
               </ul>
             </nav>
-            <button class="signup-btn">Resume</button>
+            <a
+              href="https://www.dropbox.com/scl/fi/3ysm65res85tpy64dbsc1/Chef-Colin-resume.pdf?rlkey=3be9q4wcqstg5hvqm9t9ougsg&st=3rqhftux&dl=1"
+              class="signup-btn"
+              >Resume</a
+            >
             <div class="burger-menu" id="burger-menu">
               <div class="bar"></div>
               <div class="bar"></div>
@@ -208,7 +212,7 @@
       <!-- card two -->
       <div class="explore-wrapper card-two">
         <div class="explore-card image-card">
-          <img src="./images/explore_2.png" alt="Seaweed/Meat Closeup" />
+          <img src="./images/meatsss.png" alt="Seaweed/Meat Closeup" />
         </div>
         <div class="explore-card black text-card">
           <h3>Marble, Muscle, <br />Mastery</h3>
@@ -249,25 +253,33 @@
       </div>
     </section>
     <section class="kitchens-section">
-      <h1>kitchens | Helped Define</h1>
+      <h1>kitchens | Helped Refine</h1>
       <div class="logos">
-        <div class="logo-item">
+        <a href="https://www.blackstonesteakhouse.com" class="logo-item">
           <img
             src="images/blackstone.png"
             alt="Blackstone Logo"
             class="logo-1"
           />
-        </div>
-        <div class="logo-item">
+        </a>
+        <a href="https://www.opussteakhouse.com" class="logo-item">
           <img src="images/opus.png" alt="Opus Logo" class="logo-2" />
-        </div>
-        <div class="logo-item">
+        </a>
+        <a href="https://www.one10restaurant.com" class="logo-item">
           <img src="images/one10.png" alt="One10 Logo" class="logo-3" />
-        </div>
-        <div class="logo-item">
+        </a>
+        <a href="https://www.rare650.com" class="logo-item">
           <img src="images/rare.png" alt="Rare Logo" class="logo-4" />
-        </div>
+        </a>
       </div>
+      <a
+        href="https://www.dropbox.com/scl/fi/dmk12t37ctpjpckc7ml15/Blackstone-Steakhouse-Dinner-Menu.pdf?rlkey=399p22wklpj5486wqwbt4jh6b&raw=1"
+        class="learn-more-btn-new"
+        target="_blank"
+      >
+        Blackstone Menu PDF
+        <img src="./images/arrow-btn.svg" class="arrow" />
+      </a>
     </section>
 
     <section>
@@ -279,7 +291,7 @@
               I don’t follow up with filler.<br />
               If I say there’s more coming, that means it’s worth waiting for.
             </p>
-            <a href="#" class="mtc-btn">
+            <a href="coming-soon.html" class="mtc-btn">
               View Blog
               <img src="./images/arrow_new.svg" class="arrow-new" alt="arrow" />
             </a>
@@ -295,9 +307,7 @@
                       alt="Small plant sprouting"
                     />
                   </div>
-                  <h3 class="mtc-slide-title">
-                    The Wetlands & <br />Porterhouse Park
-                  </h3>
+                  <h3 class="mtc-slide-title">The Wetlands</h3>
                 </div>
               </div>
               <div class="mtc-slide">
@@ -305,10 +315,7 @@
                   <div class="mtc-slide-image">
                     <img src="./images/slider2.svg" alt="Tree medallion" />
                   </div>
-                  <h3 class="mtc-slide-title">
-                    The Wetlands &<br />
-                    Porterhouse Park
-                  </h3>
+                  <h3 class="mtc-slide-title">Porterhouse Park</h3>
                 </div>
               </div>
               <div class="mtc-slide">
@@ -357,7 +364,9 @@
         </div>
 
         <div class="footer-button-container">
-          <button class="footer-button">CONTACT ME</button>
+          <a href="mailto:obaidullah7897@gmail.com" class="footer-button"
+            >CONTACT ME</a
+          >
         </div>
 
         <div class="footer-copyright">
@@ -427,58 +436,71 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const slider = document.querySelector(".mtc-slider");
-        const dots = document.querySelectorAll(".mtc-dot");
+        const dotsContainer = document.querySelector(".mtc-slider-dots");
+        const slides = document.querySelectorAll(".mtc-slide");
+        const totalSlides = slides.length;
         let currentIndex = 0;
-        const totalSlides = document.querySelectorAll(".mtc-slide").length;
+        let slidesPerView = window.innerWidth > 992 ? 2 : 1;
+
+        // Function to update dots based on slides per view
+        function updateDots() {
+          const dotCount = Math.ceil(totalSlides / slidesPerView);
+          dotsContainer.innerHTML = "";
+          for (let i = 0; i < dotCount; i++) {
+            const dot = document.createElement("span");
+            dot.classList.add("mtc-dot");
+            dot.setAttribute("data-index", i);
+            if (i === currentIndex) dot.classList.add("active");
+            dotsContainer.appendChild(dot);
+          }
+
+          // Add click event listeners to new dots
+          document.querySelectorAll(".mtc-dot").forEach((dot) => {
+            dot.addEventListener("click", () => {
+              currentIndex = parseInt(dot.getAttribute("data-index"));
+              updateSlider();
+              clearInterval(slideInterval);
+              slideInterval = setInterval(autoSlide, 4000);
+            });
+          });
+        }
 
         // Function to update slider position
         function updateSlider() {
-          // Calculate slide width based on the number of slides per view
-          const slideWidth = document.querySelector(".mtc-slide").offsetWidth;
-
-          // Update the slider's transform to show the correct slide
+          const slideWidth = slider.offsetWidth / slidesPerView;
           slider.style.transform = `translateX(-${
             currentIndex * slideWidth
           }px)`;
 
           // Update active dot
+          const dots = document.querySelectorAll(".mtc-dot");
           dots.forEach((dot, index) => {
-            if (index === currentIndex) {
-              dot.classList.add("active");
-            } else {
-              dot.classList.remove("active");
-            }
+            dot.classList.toggle("active", index === currentIndex);
           });
         }
 
-        // Set up automatic sliding
-        let slideInterval = setInterval(() => {
-          currentIndex = (currentIndex + 1) % totalSlides;
+        // Automatic sliding
+        function autoSlide() {
+          const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
+          currentIndex = currentIndex + 1 > maxIndex ? 0 : currentIndex + 1;
           updateSlider();
-        }, 4000);
+        }
 
-        // Handle dot clicks
-        dots.forEach((dot) => {
-          dot.addEventListener("click", () => {
-            currentIndex = parseInt(dot.getAttribute("data-index"));
-            updateSlider();
+        let slideInterval = setInterval(autoSlide, 4000);
 
-            // Reset the interval when manually clicking
-            clearInterval(slideInterval);
-            slideInterval = setInterval(() => {
-              currentIndex = (currentIndex + 1) % totalSlides;
-              updateSlider();
-            }, 4000);
-          });
-        });
-
-        // Reset slider position on window resize
+        // Handle window resize
         window.addEventListener("resize", () => {
+          const newSlidesPerView = window.innerWidth > 992 ? 2 : 1;
+          if (newSlidesPerView !== slidesPerView) {
+            slidesPerView = newSlidesPerView;
+            currentIndex = Math.min(
+              currentIndex,
+              Math.ceil(totalSlides / slidesPerView) - 1
+            );
+            updateDots();
+          }
           updateSlider();
         });
-
-        // Initial setup
-        updateSlider();
 
         // Pause autoplay on hover
         slider.addEventListener("mouseenter", () => {
@@ -487,11 +509,12 @@
 
         // Resume autoplay on mouse leave
         slider.addEventListener("mouseleave", () => {
-          slideInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateSlider();
-          }, 4000);
+          slideInterval = setInterval(autoSlide, 4000);
         });
+
+        // Initial setup
+        updateDots();
+        updateSlider();
       });
     </script>
     <script>
