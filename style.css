@@ -5,8 +5,42 @@
   box-sizing: border-box;
 }
 
-body {
-  color: black;
+@font-face {
+  font-family: "Urbanist";
+  src: url("./fonts/Urbanist-Regular.woff2") format("woff2"),
+    url("./fonts/Urbanist-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("./fonts/Urbanist-Medium.woff2") format("woff2"),
+    url("./fonts/Urbanist-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("./fonts/Urbanist-Bold.woff2") format("woff2"),
+    url("./fonts/Urbanist-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply Urbanist font to relevant elements */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+li {
   font-family: "Urbanist", sans-serif;
 }
 
@@ -182,6 +216,10 @@ header {
     text-align: center;
     z-index: 1;
     border-radius: 0 0 15px 15px;
+  }
+  .type1 {
+    font-weight: 400;
+    font-size: 28px;
   }
   .logo {
     height: 50px;
@@ -577,7 +615,7 @@ header {
   flex-wrap: wrap;
   gap: 10px;
   margin: 0 auto;
-  margin-bottom: 90px;
+  padding-top: 90px;
 }
 
 .image-card {
@@ -732,6 +770,7 @@ header {
   padding: 40px 20px;
   text-align: center;
   height: fit-content;
+  margin-top: 90px;
 }
 
 .kitchens-section h1 {
