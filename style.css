@@ -7,8 +7,7 @@
 
 @font-face {
   font-family: "Urbanist";
-  src: url("./fonts/Urbanist-Regular.woff2") format("woff2"),
-    url("./fonts/Urbanist-Regular.woff") format("woff");
+  src: url("./fonts/Urbanist-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,8 +15,7 @@
 
 @font-face {
   font-family: "Urbanist";
-  src: url("./fonts/Urbanist-Medium.woff2") format("woff2"),
-    url("./fonts/Urbanist-Medium.woff") format("woff");
+  src: url("./fonts/Urbanist-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -25,8 +23,7 @@
 
 @font-face {
   font-family: "Urbanist";
-  src: url("./fonts/Urbanist-Bold.woff2") format("woff2"),
-    url("./fonts/Urbanist-Bold.woff") format("woff");
+  src: url("./fonts/Urbanist-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -333,7 +330,7 @@ header {
   gap: 20px;
   align-items: center;
   max-width: 1200px;
-  margin: 0 atuo;
+  margin: 0 auto;
   cursor: pointer;
   margin-top: 40px;
 }
