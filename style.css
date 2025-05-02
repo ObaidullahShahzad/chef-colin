@@ -139,7 +139,7 @@ header {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url("./images/bg_texture.svg");
+  background-image: url("./images/bg_texture.png");
   opacity: 0.05;
   z-index: 1;
 }
@@ -1054,8 +1054,8 @@ header {
   margin: 40px 0;
 }
 
-.footer-logo svg {
-  max-width: 300px;
+.footer-logo img {
+  max-width: 540px;
   height: auto;
 }
 
@@ -1224,6 +1224,8 @@ header {
 }
 
 .mtc-btn img {
+  height: 40px;
+  width: 40px;
   transition: transform 0.3s ease;
 }
 
